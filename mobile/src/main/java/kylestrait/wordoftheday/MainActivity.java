@@ -1,6 +1,8 @@
 package kylestrait.wordoftheday;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,14 +14,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_def;
     private WordOfMoment wordOfMoment;
     private Word word;
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
-        if(intent.hasExtra("word")) {
-            String activeWord = intent.getStringExtra("word");
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String activeWord = sharedPreferences.getString("word","");
+
+        if(!activeWord.equals("")) {
             getActiveWord(activeWord);
         }
         else{

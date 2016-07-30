@@ -1,6 +1,8 @@
 package kylestrait.wordoftheday;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -64,6 +66,7 @@ public class WordOfMoment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        saveWordLocal();
     }
 
     public void setTheWord(String activeWord) {
@@ -94,9 +97,17 @@ public class WordOfMoment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        saveWordLocal();
     }
 
     public void saveTheWord() {
         //todo ass method to save theWord
+    }
+
+    public void saveWordLocal() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("word", theWord.getName());
+        editor.commit();
     }
 }
