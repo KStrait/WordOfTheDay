@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(sharedPreferences.getString("firstRun","yes").equals("yes")) {
             firstRun();
+            Log.d("phil", "first Run");
+        } else {
+            Log.d("phil", "not first Run");
         }
 
         if(!activeWord.equals("")) {
