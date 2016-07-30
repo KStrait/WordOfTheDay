@@ -27,6 +27,12 @@ public class WordOfMoment {
         setTheWord();
     }
 
+    public WordOfMoment(Context context, String activeWord) {
+        this.context = context;
+        theWord = new Word();
+        setTheWord(activeWord);
+    }
+
     public Word getTheWord() {
         return theWord;
     }
@@ -55,6 +61,36 @@ public class WordOfMoment {
             theWord.setDefinition(jo_inside.getString("DEFINITION"));
 
 
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setTheWord(String activeWord) {
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open("wordlist.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            Log.e("phil", ex.getMessage());
+        }
+        try {
+            JSONObject obj = new JSONObject(json);
+            JSONArray m_jArry = obj.getJSONArray("wordlist");
+
+            for(int i=0; i<m_jArry.length(); i++){
+                JSONObject jo_inside = m_jArry.getJSONObject(i);
+                if(jo_inside.getString("WORD").equals(activeWord)){
+                    theWord.setName(jo_inside.getString("WORD"));
+                    theWord.setDefinition(jo_inside.getString("DEFINITION"));
+                    break;
+                }
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
