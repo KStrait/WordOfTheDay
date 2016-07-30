@@ -16,7 +16,7 @@
         android:text="Hello World!"
         android:textSize="36sp"
         android:textColor="#ffffff"
-        android:id="@+id/textView"
+        android:id="@+id/activity_main_tv_word"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="123dp" />
@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:id="@+id/activity_main_tv_definition"
         android:textSize="22sp"
         android:textColor="#ffffff"
         android:layout_centerVertical="true"

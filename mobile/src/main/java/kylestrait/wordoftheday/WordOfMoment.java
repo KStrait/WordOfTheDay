@@ -23,6 +23,7 @@ public class WordOfMoment {
     public WordOfMoment(Context context) {
         this.context = context;
         random = new Random();
+        theWord = new Word();
         setTheWord();
     }
 
@@ -33,7 +34,7 @@ public class WordOfMoment {
     public void setTheWord() {
         String json = null;
         try {
-            InputStream is = context.getAssets().open("providers.json");
+            InputStream is = context.getAssets().open("wordlist.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -41,6 +42,7 @@ public class WordOfMoment {
             json = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             ex.printStackTrace();
+            Log.e("phil", ex.getMessage());
         }
         try {
             JSONObject obj = new JSONObject(json);
