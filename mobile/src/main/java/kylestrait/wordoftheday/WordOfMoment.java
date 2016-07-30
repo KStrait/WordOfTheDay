@@ -57,4 +57,8 @@ public class WordOfMoment {
             e.printStackTrace();
         }
     }
+
+    public void saveTheWord() {
+        //todo ass method to save theWord
+    }
 }
