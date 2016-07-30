@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String activeWord = sharedPreferences.getString("word","");
 
+        if(sharedPreferences.getString("firstRun","yes").equals("yes")) {
+            firstRun();
+        }
+
         if(!activeWord.equals("")) {
             getActiveWord(activeWord);
         }
@@ -37,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         tv_def.setText(word.getDefinition());
 
         CustomNotification cn = new CustomNotification(this, word);
-        ScheduleNotification sn = new ScheduleNotification(this, )
     }
 
     public void getActiveWord(String wordName) {
@@ -48,5 +51,12 @@ public class MainActivity extends AppCompatActivity {
     public void getNewWord() {
         wordOfMoment = new WordOfMoment(this);
         word = wordOfMoment.getTheWord();
+    }
+
+    public void firstRun() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("fistRun", "no");
+        editor.commit();
+        ScheduleNotification sn = new ScheduleNotification(this);
     }
 }

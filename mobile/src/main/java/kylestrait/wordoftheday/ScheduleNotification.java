@@ -7,6 +7,7 @@ package kylestrait.wordoftheday;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.app.AlarmManager;
@@ -20,7 +21,7 @@ public class ScheduleNotification{
     private PendingIntent alarmIntent;
 
 
-    public ScheduleNotification() {
+    public ScheduleNotification(Context context) {
         alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, MainActivity.class);
         alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
