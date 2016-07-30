@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         tv_def.setText(word.getDefinition());
 
         CustomNotification cn = new CustomNotification(this, word);
+        ScheduleNotification sn = new ScheduleNotification(this, )
     }
 
     public void getActiveWord(String wordName) {

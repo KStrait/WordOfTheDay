@@ -15,22 +15,28 @@ import java.util.Calendar;
 
 public class ScheduleNotification{
 
-
     //KyleS 7/30/2016
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
 
-    alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-    Intent intent = new Intent(context, AlarmReceiver.class);
-    alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
+    public ScheduleNotification() {
+        alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, MainActivity.class);
+        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
 // Set the alarm to start at approximately 12:00 p.m.
-Calendar calendar = Calendar.getInstance();
-    calendar.setTimeInMillis(System.currentTimeMillis());
-    calendar.set(Calendar.HOUR_OF_DAY, 12);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
 
 // With setInexactRepeating(), you have to use one of the AlarmManager interval
 // constants--in this case, AlarmManager.INTERVAL_DAY.
-    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-    AlarmManager.INTERVAL_DAY, alarmIntent);
+        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, alarmIntent);
+    }
+
+
+
+
 }
