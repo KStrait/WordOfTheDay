@@ -12,7 +12,7 @@ public class MyDisplayActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
-        mTextView = (TextView) findViewById(R.id.text);
+        mTextView = (TextView) findViewById(R.id.word);
         mTextView = (TextView) findViewById(R.id.definition);
     }
 }
