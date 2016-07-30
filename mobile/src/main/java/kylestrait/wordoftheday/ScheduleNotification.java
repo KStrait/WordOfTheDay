@@ -29,7 +29,7 @@ public class ScheduleNotification{
 // Set the alarm to start at approximately 12:00 p.m.
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 19);
+        calendar.set(Calendar.HOUR_OF_DAY, 15);
         calendar.set(Calendar.MINUTE, 9);
 
 // With setInexactRepeating(), you have to use one of the AlarmManager interval
