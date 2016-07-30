@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#da1850de"
     tools:context="kylestrait.wordoftheday.MyDisplayActivity"
     tools:deviceIds="wear">
 
@@ -11,5 +12,23 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
-</LinearLayout>
+        android:text="@string/hello"
+        android:layout_gravity="center_horizontal"
+        android:textSize="36dp"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/definition"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="73dp" />
+
+    <TextView
+        android:id="@+id/definition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>
